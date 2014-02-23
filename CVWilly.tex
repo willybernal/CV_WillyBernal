@@ -1,0 +1,462 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{verbatim} 
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}
+    {\minipage[t]{\linewidth}\list{}{%
+        \setlength{\leftmargin}{\bibhang}%
+        \setlength{\itemindent}{-\leftmargin}%
+        \setlength{\itemsep}{\bibsep}%
+        \setlength{\parsep}{\z@}%
+        }}
+    {\endlist\endminipage}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+% 
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Willy G.~Bernal}
+
+\section{Contact Information}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.85in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+\href{http://www.ece.osu.edu/}%
+     {Department of Electrical and Systems Engineering} & \\
+\href{http://www.upenn.edu/}{The University of Pennsylvania}
+                           	& \textit{Cell:} (267) 815-1233 \\
+279 Moore Building         	& \textit{Fax:} (215) 573-2068 \\
+200 S. 33rd St           		& \textit{E-mail:}
+\href{mailto:willyg@seas.upenn.edu}{willyg@seas.upenn.edu}\\
+Philadelphia, PA  19104 USA    & %\textit{WWW:}
+%\href{http://www.tedpavlic.com/}{www.tedpavlic.com}\\
+\end{tabular}
+
+%\section{Citizenship}
+%
+%Peruvian
+
+\section{Research Interests}
+%
+Energy-Efficient Buildings, Control theory, Embedded Systems, Robotics, Dynamical Systems, Cyber-Phyisical Systems 
+
+\section{Education}
+%
+\href{http://www.upenn.edu/}{\textbf{The University of Pennsylvania}},
+Philadelphia, Pennsylvania USA
+\begin{outerlist}
+
+\item[] P.h.D.,
+        \href{http://www.ese.upenn.edu/}
+             {Electrical and Systems Engineering}
+             (expected graduation date: May 2016)
+        \begin{innerlist}
+        %\item Thesis Topic: \emph{Optimal Foraging Theory Revisited}
+        \item Advisor:
+              \href{http://www.seas.upenn.edu/~rahulm}
+                   {Professor Rahul Mangharam}
+        \item Area of Study: Cyber-Physical System
+        \item GPA: 3.55/4.0 
+        \end{innerlist}
+
+\item[] M.S.,
+        \href{http://www.me.upenn.edu/}
+             {Mechanical Engineering and Applied Mechanics}, (May 2010)
+        \begin{innerlist}
+        %\item Thesis Topic: \emph{Optimal Foraging Theory Revisited}
+        \item Advisor:
+              \href{http://alliance.seas.upenn.edu/~kumar/wiki/index.php?n=Main.HomePage}
+                   {Professor Vijay Kumar}
+        \item Area of Study: Robotics
+        \item GPA: 3.94/4.0 (10 courses)
+        \end{innerlist}
+
+\item[] B.S.,
+        \href{http://www.ese.upenn.edu/}
+             {Electrical Engineering}, (May 2010)
+        \begin{innerlist}
+        %\item \emph{Magna cum Laude}, With Honors in Engineering
+        \item Electrical specialization (emphasis on Embedded Systems)
+        \item GPA: 3.85/4.0 (12 courses)
+        \end{innerlist}
+
+\item[] B.S.,
+        \href{http://www.me.upenn.edu/}
+             {Mechanical Engineering and Applied Mechanics}, (May 2010) 
+        \begin{innerlist}
+        %\item \emph{Magna cum Laude}, With Honors in Engineering
+        \item Mechanical specialization (emphasis on Mechatronics and Robotics)
+        \item Minor in \href{http://www.math.upenn.edu/}
+                            {Mathematics}
+        \item GPA: 3.80/4.0 (15 courses)
+        \end{innerlist}
+        
+\end{outerlist}
+
+\section{Awards}
+%
+\textbf{Best Demo Award} %\href{http://www.buildsys.org/2012/}{BuildSys '12, Toronto, Canada.}
+	\begin{innerlist}
+		\item \href{http://www.buildsys.org/2012/}{4th ACM Workshop on Embedded Sensing Systems For Energy-Efficiency in Buildings} for \href{http://repository.upenn.edu/mlab_papers/51/}{\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy-Efficient Building Controls.}}\\
+	\end{innerlist}
+
+\href{http://www.upenn.edu/}{\textbf{The University of Pennsylvania}}
+	\begin{innerlist}
+		\item Dean's List,\\
+        	2005-2006, 2007-2008. 
+	\end{innerlist}
+
+\section{Current Projects}
+%
+\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy-Efficient Buildings}
+\begin{innerlist}
+\item \href{http://www.upenn.edu/}{MLE+} is a Co-Simulation Toolbox for integrated design and deployment of energy-efficient building controls for buildings simulated in EnergyPlus. MLE+ leverages the high-fidelity building simulation capabilities of EnergyPlus and the scientific computation and controller design capabilities of Matlab. 
+\item The software provides integrated building simulation and controller formulation with integrated support for system identification, control design, optimization, simulation analysis and communication between software applications and real building equipment. (\href{http://mlab.seas.upenn.edu/mlep}{mlab.seas.upenn.edu/mlep})\\
+\item We are currently working on simulating multiple buildings and its interactions. To distribute the computational burden and decrease simulation time we are extending MLE+ to migrate the computation to the Cloud, specifically Amazon Web Services (\href{http://aws.amazon.com}{AWS}).\\ 
+\end{innerlist}
+
+\textbf{Low-Cost Portable Wireless Sensor System for Inverse Building Modeling }
+\begin{innerlist}
+\item The objective of this activity is to develop and deploy a wireless sensor system for training a building model that can support Model Predictive Control. This work will examine sensitivity of model training results to the location, density of sensors and richness of training data via simulation and through real deployment. 
+\item To gather environment data (solar radiation, ambient temperature, etc) we are designing and building a fleet of low-cost wireless sensor nodes. 
+\item This project is part of the Energy-Efficient Buildings Hub (\href{http://www.eebhub.org}{EEB Hub}) supported by the Department of Energy. This initiative focus on advancing promising areas of energy science and engineering from the earliest stages of research to the point of commercialization.\\ 
+\end{innerlist}
+
+\textbf{SolarSkin: Leveraging Fine-Grained Solar Radiation and Temperature Sensing in Advanced Building Controls}
+\begin{innerlist}
+\item SolarSkin aims at leveraging fine-grained monitoring of external conditions such as temperature and solar radiation to reduce HVAC energy consumption. This project focuses on the effect of external conditions and how they can lead to energy saving policies with low cost sensing. Solar flux, outdoor air temperature and the temperature of the building envelope (exterior wall) would allow us to refine our predictions of the building heat gains for short timescales (30-60 minutes) and locational granularity (differential between the East and West wings of a building). 
+\item Our goal is to leverage this extra information in scheduling internal HVAC equipment to minimize energy consumption while meeting comfort standards. Simulation are performed using MLE+ for buildings modeled in EnergyPlus. Data was acquired for two office buildings in urban settings using a WSN.\\ 
+\end{innerlist}
+\section{Past Projects}
+%
+\textbf{Home Automation Network}
+\begin{innerlist}
+\item A real-time, low-power wireless sensor network system that can actuate any AC appliance, open and close window blinds, and monitor, in real-time, power consumption of each device on the network. 
+\item The project implements the \href{http://www.nanork.org/wiki/FireFly}{Firefly} sensor nodes, \href{http://www.nanork.org}{Nano-RK}(a realtime operating system), relays, and various other electronic components to build the hardware for actuation. 
+\item The \href{http://www.nanork.org/wiki/FireFly}{Firefly} sensor nodes wirelessly (IEEE 802.15.4) communicate with a gateway node while an iPhone web application and Java web application facilitates two-way communication with the actuation network over Wi-Fi or 3G and provides an interface for the user for actuation and sensing. \\
+\end{innerlist}
+
+\textbf{Electrocardiogram Wireless Sensor, (\href{http://mlab.seas.upenn.edu/zipcare}{\textbf{iBOD}})}
+\begin{innerlist}
+\item This project consists of a high-confidence and low profile medical device for long-term onbody monitoring. 
+\item This project targets low cost disposable on-body hardware-base health-strip, an adaptive real-time operating system design for runtime programmable control and long-term context-based medical sensor data interpretation. \\
+\end{innerlist}
+
+\newpage
+\section{Academic Experience}
+\href{http://www.upenn.edu}{\textbf{The University of Pennsylvania}},
+Philadelphia, Pennsylvania USA
+\begin{outerlist}
+\item[] \textit{Ph.D. Candidate in Electrical Engineering }\href{http://mlab.seas.upenn.edu}{\textbf{mLAB}}
+    \hfill \textbf{Fall 2009 to Present}
+    \begin{innerlist}
+        \item Development of Energy-Efficient Building Controls software. \href{http://mlab.seas.upenn.edu/mlep/}{MLE+} Developer.   
+        
+        \item Design of advanced controls for Energy-Efficient Buildings. 
+		
+		\item Design and construction of Wireless Sensor Networks for data gathering.  
+        
+    \end{innerlist}
+
+\item[] \textit{Research Assistant }\href{http://modlabupenn.org/}{\textbf{Modular Robotics}}
+    \hfill \textbf{January 2006 to 2009}
+    \begin{innerlist}
+        \item Contributed to the design, control and testing of a \href{http://modlabupenn.org/multimedia/}
+        {novel scalable biologically-inspired legged style of locomotion}.    
+
+        \item Built a dynamic model capable of simulating the dynamics of the 
+        \href{http://modlabupenn.org/dynamic-locomotion-of-ckbot/}
+        {robotic centipede} in two and three-dimensions utilizing the Spring Loaded Inverted Pendulum (SLIP) template 
+        for the dynamical model. 
+
+        \item Designed and implemented a responsive feedback loop for the Hi-tech digital Servo to increase the robot 	
+        dynamic response.
+
+        \item Responsible of design, software development and manufacturing of custom mechanical and electrical research 	
+        platforms: 
+        \href{http://modlabupenn.org/ckbot/}{CKbot}.
+        \item Gait Generation and hardware design for the 									  		  
+        \href{http://modlabupenn.org/self-re-assembly-after-explosion/}
+        {Self-Assembly after Explosion (SAE)}. TechFest presentations in Chicago (2008) and Bombay (2009).  
+        
+    \end{innerlist}
+
+\item[] \textit{Research Assistant }\href{http://modlabupenn.org/}{\textbf{Radiology Department}}
+        \hfill \textbf{Summer 2009}
+\begin{innerlist}
+\item Software implementation (using Matlab) for supervised learning methods used for classification such as Support Vector 					Machines (SVM) in order to differentiate benign and malignant breast masses on ultrasound scans.   
+\end{innerlist}
+
+\item[] \textit{Official Tutor }\href{http://www.vpul.upenn.edu/tutoring/}{\textbf{Satellite Tutoring Center}}
+        \hfill \textbf{August 2007 to December 2009}
+\begin{innerlist}
+\item Explaining topics or concepts that were covered in class, helping develop sound study skills and time management skills, 				giving extra practice, and teaching the student how to study for tests. 
+\item Courses:
+		\begin{innerlist}
+				\item \href{http://www.math.upenn.edu/ugrad/calc/m241/}{Math 241} (Fourier and Complex Analysis)
+				\item \href{http://www.math.upenn.edu/ugrad/calc/m240/}{Math 240} (Vector Calculus)
+				\item \href{http://www.math.upenn.edu/ugrad/calc/m114/}{Math 114} (Differential Equations)
+				\item \href{http://www.math.upenn.edu/ugrad/calc/m104/}{Math 104} (Differentiation and Integration)
+		\end{innerlist} 
+\end{innerlist}
+\end{outerlist}
+
+\section{Publications} \begin{bibsection}
+    \item Willy Bernal, Madhur Behl, Truong X. Nghiem, and Rahul Mangharam
+    \href{http://repository.upenn.edu/mlab_papers/51/}{\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy Efficient Building Controls}},
+    \href{http://www.buildsys.org/2012/}{\emph{4th ACM Workshop On Embedded Sensing Systems For Energy-Efficiency In Buildings}}.
+    (BuildSys '12), Toronto, Canada. 2012.
+    
+    \item Sastra, J., Bernal Heredia, W., Yim, M. and Clark J.  	
+    \href{http://modlab.seas.upenn.edu/publications/2008_DSCC_Centipede.pdf}{\textbf{A Biologically-Inspired 
+    Dynamic Legged Locomotion with a Modular Reconfigurable Robot}},
+    \href{http://www.dsc-conference.org/}{\emph{Dynamic System Control Conference}}. 2008.
+
+
+\end{bibsection}
+
+\section{Technical Skills}
+%
+\textbf{Building and Mechanical Simulation Software:}
+\begin{innerlist}
+	\item EnergyPlus, Design Builder, Rhinoceros, Daysim, Radiance, Open Studio, COMSOL, Fluent, Ecotect, SolidWorks.\\   
+\end{innerlist}
+
+\textbf{Embedded Systems:} 
+\begin{innerlist}
+	\item Entensive Hardware and software experience in embedded systems, Real Time operating systems, wireless cards (Chipcon CC2420), and analog and digital electronics. \href{http://www.nanork.org/wiki/FireFly}{Firefly}, \href{http://modlabupenn.org/ckbot/}{CKbot}. ARM microprocessors (\href{http:www.mbed.org}{mbed}), Motorola MCU's, Texas Instruments MCU's, Atmel ATmega MCU's, Microchip PIC MCU's, and others).
+	\item Real-Time Operating Systems: \href{http:www.nano-rk.org}{Nano-RK}\\
+\end{innerlist}
+
+\textbf{Programming Experience:}
+\begin{innerlist}
+	\item C/C++, Java, Matlab, HTML, Python, CSS. \\
+\end{innerlist}
+
+\textbf{Information Technology}
+\begin{innerlist}
+	\item Networking (UDP,TCP, SLIPstream), Service (Apache).\\
+\end{innerlist}
+
+\textbf{Analog and Digital Electronics}
+\begin{innerlist}
+	\item Analog and Digital Electronics: Bipolar and FET implementations of continuous and switched amplifiers, modulators, and filters.\\ \end{innerlist}
+
+\textbf{Computer-Aided Design:}
+\begin{innerlist}
+	\item Cadence OrCAD, NI Multisim, SPICE, Eagle CADsoft, 	AutoCAD, SolidWorks, GoogleSkepup.\\
+\end{innerlist}
+
+\textbf{Matlab}
+\begin{innerlist}
+    \item Experience with the following packages: Linear Algebra, Fourier transforms, Nonlinear Numerical Methods, Support Vector Machines, GUI utilities, Optimization, Communication tools, Visualization, Simulink, MPC toolbox.\\
+\end{innerlist}
+
+\textbf{Engineering Expertise}
+\begin{innerlist}
+	\item Control: Linear Systems Theory, Feedback, Non-Linear Control and Optimal Control Theory.
+	\item Optimization: Linear Optimization, Convex Optimization. 
+	\item Robotics: Machine Perception, Motion Planning.
+	\item Statistics: Support Vector Machines, Regression Analysis, Estimation.\\
+\end{innerlist}
+
+\section{Affiliations}
+%
+\href{http://www.upenn.edu}{\textbf{The University of Pennsylvania}}
+\begin{innerlist}
+\item \href{http://www.seas.upenn.edu/~tbp/}{Tau Beta Pi}, Engineering Honor Society, Delta Chapter.
+\item \href{http://www.seas.upenn.edu/~ekn/}{Eta Kappa Nu}, Electrical and Computer Engineering Honor Society. Lambda Chapter. 
+\item \href{http://www.seas.upenn.edu/~shpe/}{SPHE}, Society of Hispanic Professional Engineers
+\end{innerlist}
+
+\section{References}
+%
+Rahul Mangharam\\
+\href{mailto:willyg@seas.edu}{rahulm@seas.upenn.edu}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
