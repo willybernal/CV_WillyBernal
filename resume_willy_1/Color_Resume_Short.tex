@@ -1,0 +1,353 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.11 (19/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[scale=0.85]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Willy} % Your first name
+\familyname{Bernal} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{Curriculum Vitae}
+\address{4832 25th Street Apt. 2}{San Francisco, CA 94114}
+\mobile{(267) 815 1233}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{willybernal@gmail.com}
+%\homepage{staff.org.edu/~jsmith}{staff.org.edu/$\sim$jsmith} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+%\extrainfo{additional information}
+\photo[100pt][0.4pt]{pictures/Willy_team_big_1} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\cventry{}{\href{www.upenn.edu}{\textcolor{blue}{University of Pennsylvania}}}{}{Philadelphia}{PA}{}  % Arguments not required can be left empty
+
+
+\cventry{2010 -- 2014}{Masters of Electrical Engineering}{GPA: 3.81}{}{}{Area of Study: Cyber-Physical Systems}  % Arguments not required can be left empty
+
+\cventry{2008 -- 2010}{Masters of Mechanical Engineering}{GPA: 3.94}{}{}{Area of Study: Robotics}  % Arguments not required can be left empty
+
+\cventry{2005 -- 2010}{Bachelor of Mechanical Engineering}{GPA: 3.85}{}{}{Area of Study: Embedded Systems}  % Arguments not required can be left empty
+
+\cventry{2005 -- 2010}{Bachelor of Electrical Engineering}{GPA: 3.80}{}{}{Area of Study: Mechatronics and Robotics}  % Arguments not required can be left empty
+
+%\section{Masters Thesis}
+
+%\cvitem{Title}{\emph{Money Is The Root Of All Evil -- Or Is It?}}
+%\cvitem{Supervisors}{Professor James Smith \& Associate Professor Jane Smith}
+%\cvitem{Description}{This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Professional Experience}
+
+%\subsection{Vocational}
+\cventry{2014--Present}{Lead Mechatronics and Controls Engineer}{\href{http://www.litmotors.com}{\textsc{\textcolor{blue}{Litmotors}}}}{San Francisco}{CA}{Build a framework for system identification and develop controls for driving an Auto-balancing 2-wheel Electric Vehicle (\href{http://litmotors.com/c1/}{\textit{\textcolor{blue}{AEV}}}).
+\newline{}
+Detailed achievements:
+\begin{itemize}
+\item Sofware and hardware development to interface sensors and actuators with the vehicle's CAN bus. 
+\item Design static balancing and driving controls for the C-1 (\href{http://litmotors.com/c1/}{\textit{\textcolor{blue}{AEV}}}).
+\item Develop dynamic models using Lagrange and Kane's method.
+\item Perform structure identification using first-princicples and greybox modeling.
+%\item Utilize statistical filtering for state estimation (Kalman filtering).
+\item Perform Frequency Response (I/O) analysis to develop controls using frequency compensation.
+%\item Design identification experiments for the vehicle.
+\item Simulate and visualize 3-D dynamics of the vehicle.
+%\item Program the real-time embedded platform using the Real-Time Explorer.
+\end{itemize}}
+
+%------------------------------------------------
+
+\cventry{Summer 2013}{Research Participant Program}{\href{http://www.nrel.gov}{\textsc{\textcolor{blue}{National Renewable Energy Laboratory (NREL)}}}}{Golden}{CO}{Develop an integrated framework for campus-wide building energy modeling and Hardware-in-the-Loop simulation in the Matlab/Simulink environment. 
+\newline{}
+Detailed achievements:
+\begin{itemize}
+\item Expand the capabilities of \href{http://mlab.seas.upenn.edu/mlep/}{\textit{\textcolor{blue}{MLE+}}} to interconnect multiple buildings through a heating/cooling piping system.
+\item Automate the dispatch of multiple Computing Units from the Amazon Web Services to distribute computation of multiple building simulations. 
+\item Create a database with weather-feed to pull information on demand for the simulations.
+\item Program Real-Time target machine (OPAL RT-Lab) to perform hardware-in-the-loop simulation.
+\end{itemize}}
+
+\cventry{2010--2014}{Graduate Research Assistant}{\href{http://mlab.seas.upenn.edu/}{\textsc{\textcolor{blue}{\MakeLowercase{m}LAB - University of Pennsylvania}}}}{Philadelphia}{PA}{Research and develop advanced controls for dynamic systems.  %(\href{http://litmotors.com/c1/}{\textit{\textcolor{blue}{AEV}}}).
+\newline{}
+Detailed achievements:
+\begin{itemize}
+\item Research and synthesize controls for energy-efficient buildigs. 
+\item Develop and provide support for \href{http://www.mlab.seas.upenn.edu/mlep}{\textit{\textcolor{blue}{MLE+}}}, a co-simulation program for controls of energy-efficient buildings (\href{http://www.mlab.seas.upenn.edu/mlep}{\textit{\textcolor{blue}{MLE+}}}).
+\item Develop and deploy a fleet of wireless sensors for data gathering. 
+\item Lead a team to design and fabricate a wearable Electrocardiogram Patch for long term monitoring (~1 month). 
+\end{itemize}}
+
+\cventry{2006--2010}{Research Assistant}{\href{http://modlabupenn.org/}{\textsc{\textcolor{blue}{MODLAB - University of Pennsylvania}}}}{Philadelphia}{PA}{Develop and research the robotic platform for modular robotics CKbot (\href{http://modlabupenn.org/ckbot/}{\textit{\textcolor{blue}{CKbot}}}).
+\newline{}
+Detailed achievements:
+\begin{itemize}
+\item Contributed to the design, control and testing of a \href{http://modlabupenn.org/multimedia/}{\textit{\textcolor{blue}{novel scalable biologically-inspired legged style of locomotion}}}. 
+\item Built a dynamic model capable of simulating the dynamics of the \href{http://modlabupenn.org/dynamic-locomotion-of-ckbot/}{robotic centipede} in two and three-dimensions utilizing the Spring Loaded Inverted Pendulum (SLIP) template for the dynamical model.
+\item Responsible of design, software development and manufacturing of custom mechanical and electrical research platforms: \href{http://modlabupenn.org/ckbot/}{\textit{\textcolor{blue}{CKbot}}}.
+\item Gait Generation and hardware design for the \href{http://modlabupenn.org/self-re-assembly-after-explosion/}{\textit{\textcolor{blue}{Self-Assembly after Explosion (SAE)}}}. TechFest presentations in Chicago (2008) and Bombay (2009).  
+\
+\end{itemize}}
+
+
+%------------------------------------------------
+
+\section{Selected Projects}
+\iffalse
+
+%
+\cvitem{}{\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy-Efficient Buildings}
+\begin{itemize}
+\item \href{http://mlab.seas.upenn.edu/mlep/}{\textit{\textcolor{blue}{MLE+}}} is a Co-Simulation Toolbox for integrated design and deployment of energy-efficient building controls for buildings simulated in EnergyPlus. MLE+ leverages the high-fidelity building simulation capabilities of EnergyPlus and the scientific computation and controller design capabilities of Matlab. 
+\item The software provides integrated building simulation and controller formulation with integrated support for system identification, control design, optimization, simulation analysis and communication between software applications and real building equipment. (\href{http://mlab.seas.upenn.edu/mlep/}{\textit{\textcolor{blue}{mlab.seas.upenn.edu/mlep}}})
+\end{itemize}
+}
+
+\cvitem{}{\textbf{MLE+: Integrated Campus-Wide Simulation}
+\begin{itemize}
+\item The \href{http://mlab.seas.upenn.edu/mlep_campus/}{\textit{\textcolor{blue}{Integrated Campus-Wide project}}} simulates and captures the entire campus' energy dynamics and consumption to qualitatively measure the interaction between supply-side equipment, e.g. chiller plants, and demand-side loads, e.g. buildings. This analysis is paramount to achieving coordinated operation for energy efficiency and demand response strategies. 
+\item \href{http://www.upenn.edu/mlep}{MLE+} coordinates and synchronizes the exchange of data across multi-systems and multi-building models. Through MLE+, we analyze the interactions of multiple buildings connected through a water loop as in a university campus.
+\end{itemize}}
+
+\fi
+
+\cvitem{}{\textbf{MLE+: Cloud-Based Optimization}
+\begin{itemize}
+\item The cloud module in MLE+ leverages the computation power of Amazon Elastic Compute Cloud Units (EC2) provided  by Amazon Web Services (\href{http://aws.amazon.com}{AWS}) for highly-intensive simulations.  
+\item The module computes the optimal campus control strategy when faced with a DR event using MLE+. 
+\item The system automatically balances and dispatches the computation of the  EnergyPlus and Matlab/Simulink models into the Amazon Elastic Compute Cloud (EC2) service. 
+\end{itemize}}
+
+
+
+\cvitem{}{\textbf{Low-Cost Portable Wireless Sensor System for Inverse Building Modeling }
+\begin{itemize}
+\item The project aimed at developing and deploying a wireless sensor network for identifying and training a model that can support Model Predictive Control. This work examined sensitivity of model training results to the location, density of sensors and richness of training data via simulation and through real deployment. To gather environment data (solar radiation, ambient temperature, etc) I designed, built and deployed a fleet of low-cost wireless sensor nodes. 
+\item This project was part of the Energy-Efficient Buildings Hub (\href{http://www.eebhub.org}{\textit{\textcolor{blue}{EEB Hub}}}) supported by the Department of Energy. This initiative focused on advancing promising areas of energy science and engineering from the earliest stages of research to the point of commercialization.
+\end{itemize}}
+
+\iffalse
+
+\cvitem{}{\textbf{SolarSkin: Leveraging Fine-Grained Solar Radiation and Temperature Sensing in Advanced Building Controls}
+\begin{itemize}
+\item SolarSkin aimed at leveraging fine-grained monitoring of external conditions such as temperature and solar radiation to reduce HVAC energy consumption. This project focused on the effect of external conditions and how they lead to energy saving policies with low-cost sensing. Solar flux, outdoor air temperature and the temperature of the building envelope (exterior wall) allowed us to refine our predictions of the building heat gains for short timescales (30-60 minutes) and locational granularity (differential between the East and West wings of a building). 
+\item The goal was to leverage this extra information in scheduling internal HVAC equipment to minimize energy consumption while meeting comfort standards. Simulation are performed using MLE+ for buildings modeled in EnergyPlus. Data was acquired for two office buildings in urban settings using a WSN.
+\end{itemize}}
+\fi
+
+\cvitem{}{\textbf{iBod: Wearable Electrocardiogram Patch}
+\begin{itemize}
+\item The project focused on heart monitoring and detection of arrhythmia for long term monitoring (1-2 month). A low power Real-Time Operating System (\href{http://www.nanork.org/projects/nanork/wiki}{Nano-RK}) was used to schedule the multiple tasks like sensing, RF transmission, feature extraction and arrhythmia detection. A mobile application recollected and displayed vital signs and the full ecg signal. 
+\item This project required a strong understanding of analog and digital circuitry. The board implemented stringent analog filtering to capture the ECG pulse in a low SNR environment.  
+\end{itemize}}
+
+\cvitem{}{\textbf{Modular Robotics: Robotic Centipede}
+\begin{itemize}
+\item This project researched a scalable biologically-inspired legged style of locomotion using the modular robotic platform \href{http://modlabupenn.org/ckbot/}{\textit{\textcolor{blue}{CKbot}}}. Each module consist of a hobby servo that drives a rotary degree of freedom.  
+\item The dynamic locomotion is achieved with a \href{http://modlabupenn.org/dynamic-locomotion-of-ckbot/}{\textit{\textcolor{blue}{modular robot}}} with pure body articulation and passive compliant legs. The Communication to each module is through a global bus based on the RoboticsBus protocol built on the CANbus standard.   
+\end{itemize}}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TEACHING SECTION
+%----------------------------------------------------------------------------------------
+\iffalse
+
+\section{Teaching Experience}
+\cvitem{Fall 2013}{\textbf{Teaching Assistant.}\href{http://www.seas.upenn.edu/~ese519/}{Graduate Real-Time Embedded Systems Class.}
+\newline{}The course focus on understanding and obtaining hands-on experience with the state of the art wireless sensor networks.}
+
+\cvitem{2007 -- 2009}{\textbf{Official Tutor.}\href{http://www.vpul.upenn.edu/tutoring/}{Upenn Tutoring Center.} Explaining topics or concepts that were covered in class, helping develop sound study 	skills and time management skills, giving extra practice, and teaching the student how to study for tests. 
+\newline{}Courses:
+\newline{}\href{http://www.math.upenn.edu/ugrad/calc/m241/}{Math 241} (Fourier and Complex Analysis)
+\newline{}\href{http://www.math.upenn.edu/ugrad/calc/m240/}{Math 240} (Vector Calculus)
+\newline{}\href{http://www.math.upenn.edu/ugrad/calc/m114/}{Math 114} (Differential Equations)
+\newline{}\href{http://www.math.upenn.edu/ugrad/calc/m104/}{Math 104} (Differentiation and Integration)}
+
+\fi
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+\iffalse
+\section{Awards}
+
+\cvitem{2012}{Best Demo Award. \newline{} 
+\href{http://www.buildsys.org/2012/}{4th ACM Workshop on Embedded Sensing Systems For Energy-Efficiency in Buildings} for \href{http://repository.upenn.edu/mlab_papers/51/}{\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy-Efficient Building Controls.}}}
+
+\cvitem{2005 -- 2006 2007 -- 2008}{Dean's List.}
+\fi
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Publications}
+
+\cvitem{}{\textbf{Bernal, W.}; Behl, M.; Nghiem, T.; and Mangharam, R.
+	\href{http://bibbase.org/show?bib=seas.upenn.edu/~mbehl/pubs/pubs.bib}{\textbf{Campus-wide integrated building energy simulation}}
+\href{https://www.ashrae.org/membership--conferences/conferences/ashrae-ibpsa-usa-papers}{\emph{In ASHRAE/IBPSA-USA Building Simulation Conference, Atlanta, 2014.}}}
+
+\cvitem{}{\textbf{Willy Bernal}, Madhur Behl, Truong X. Nghiem, and Rahul Mangharam
+    \href{http://repository.upenn.edu/mlab_papers/51/}{\textbf{MLE+: A Tool for Integrated Design and Deployment of Energy Efficient Building Controls}},
+    \href{http://www.buildsys.org/2012/}{\emph{4th ACM Workshop On Embedded Sensing Systems For Energy-Efficiency In Buildings}}.
+    (BuildSys '12), Toronto, Canada. 2012.}
+
+\cvitem{}{Sastra, J., \textbf{Bernal Heredia, W.}, Yim, M. and Clark J.  	
+    \href{http://modlab.seas.upenn.edu/publications/2008_DSCC_Centipede.pdf}{\textbf{A Biologically-Inspired 
+    Dynamic Legged Locomotion with a Modular Reconfigurable Robot}},
+    \href{http://www.dsc-conference.org/}{\emph{Dynamic System Control Conference}}. 2008.}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Technical skills}
+
+\cvitem{Engineering Expertise}{Control: Linear Systems Theory, Feedback, Non-Linear Control and Optimal Control Theory.
+\newline{}Optimization: Linear Optimization, Convex Optimization. 
+\newline{}Robotics: Machine Perception, Motion Planning.
+\newline{}Statistics: Support Vector Machines, Regression Analysis, Estimation.}
+
+\cvitem{Embedded Systems}{
+Entensive Hardware and software experience in embedded systems, Real Time operating systems, wireless cards (Chipcon CC2420), and analog and digital electronics. \href{http://www.nanork.org/wiki/FireFly}{Firefly}, \href{http://modlabupenn.org/ckbot/}{CKbot}. ARM microprocessors (\href{http:www.mbed.org}{mbed}), Motorola MCU's, Texas Instruments MCU's, Atmel ATmega MCU's, Microchip PIC MCU's, and others).
+}
+
+\cvitem{RTOS}{
+Real-Time Operating Systems: \href{http:www.nano-rk.org}{Nano-RK},\href{http://www.chibios.org/dokuwiki/doku.php}{ChibiOS/RT}
+}
+
+%\cvitem{Simulation Software}{EnergyPlus, Design Builder, Rhinoceros, Daysim, Radiance, Open Studio, COMSOL, Fluent, Ecotect, SolidWorks.}
+
+\cvitem{Programming}{C/C++, Java, Matlab, HTML, Python, CSS.}
+
+%\cvitem{Information technology}{Networking (UDP,TCP, SLIPstream), Service (Apache).}
+
+\cvitem{Matlab}{Experience with the following packages: Linear Algebra, Fourier transforms, Nonlinear Numerical Methods, Support Vector Machines, GUI utilities, Optimization, Communication tools, Visualization, Simulink, MPC toolbox.}
+
+%\cvitem{Analog and Digital Electronics}{Analog and Digital Electronics: Bipolar and FET implementations of continuous and switched amplifiers, modulators, and filters.}
+
+%\cvitem{Computer-Aided Design}{Cadence OrCAD, NI Multisim, SPICE, Eagle CADsoft, AutoCAD, SolidWorks, GoogleSkepup.}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Communication Skills}
+
+%\cvitem{2010}{Oral Presentation at the California Business Conference}
+%\cvitem{2009}{Poster at the Annual Business Conference in Oregon}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+\iffalse
+
+\section{Languages}
+
+\cvitemwithcomment{Spanish}{Mothertongue}{}
+\cvitemwithcomment{English}{Full Professional Proficiency}{}
+%\cvitemwithcomment{Dutch}{Basic}{Basic words and phrases only}
+
+\fi
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\iffalse
+
+\section{Interests}
+
+\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+
+\cvlistdoubleitem{Soccer}{Motorcycles}
+\cvlistitem{Dancing}
+
+\fi
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{References}
+%
+
+\cvitem{mLAB}{Academic Advisor: \textbf{Dr. Rahul Mangharam}. \href{mailto:rahulm@seas.edu}{rahulm@seas.upenn.edu}}
+
+%\cvitem{Modlab}{Academic Advisor: \textbf{Dr. Mark Yim}. \href{mailto:yim@grasp.upenn.edu}{yim@grasp.upenn.edu}}
+
+\cvitem{NREL}{Supervisor: \textbf{Dr. Brian Ball}. \href{mailto:Brian.Ball@nrel.gov}{Brian.Ball@nrel.gov}}
+
+\cvitem{Lit Motors}{Co-Worker: \textbf{M.Eng. Harsh Jain}. \href{mailto:reach.harsh10@gmail.com}{reach.harsh10@gmail.com}}
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+%\clearpage
+
+%\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
+%\date{\today} % Letter date
+%\opening{Dear Sir or Madam,} % Opening greeting
+%\closing{Sincerely yours,} % Closing phrase
+%\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
+
+%\makelettertitle % Print letter title
+
+%\lipsum[1-3] % Dummy text
+
+%\makeletterclosing % Print letter signature
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
